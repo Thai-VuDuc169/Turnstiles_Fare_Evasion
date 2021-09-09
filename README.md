@@ -1,0 +1,2 @@
+# Turnstiles_Fare_Evasion
+This project was created to deal with the problem of detecting fare evasion through turnstiles in public areas such as subway stations, airports, etc. The punishment for “fare evasion” is on par with that of property theft, driving under the influence, or assault. Therefore, I want to do this project to prevent this problem in places where there is no human's control, increase more revenue in the e-ticketing industry.
