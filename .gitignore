@@ -30,3 +30,8 @@
 *.exe
 *.out
 *.app
+
+# Test folder
+
+# Build folder
+test/test_Infer2Features/build
