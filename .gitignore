@@ -33,5 +33,9 @@
 
 # Test folder
 
-# Build folder
+# Build folders
 test/test_Infer2Features/build
+detections/yolov5_tensorrtx/build
+
+# VSC config
+.vscode

@@ -3,9 +3,9 @@
 [IMAGE_DIRECTORY]
 /path/to/the/image/directory
 [METRIC_MODEL]
-../RUNNINGDATA/tensor_networks/111.meta
+../models/tensor_networks/111.meta
 [FEATURE_MODEL]
-../RUNNINGDATA/tensor_networks/mars-small128.ckpt-68577
+../models/tensor_networks/mars-small128.ckpt-68577
 [ARGS_NN_BUDGET]
 100
 [ARGS_MAX_COSINE_DISTANCE]
