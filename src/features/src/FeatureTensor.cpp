@@ -80,8 +80,8 @@ bool FeatureTensor::getRectsFeature(const cv::Mat& img, DETECTIONS& d)
         }
 
 		cv::Mat mattmp = img(rc).clone();
-		cv::resize(mattmp, mattmp, cv::Size(64, 128));
-		mats.push_back(mattmp);
+		cv::resize(mattmp, mattmp, cv::Size(64, 128)); // (width, height) = (64, 128)
+ 		mats.push_back(mattmp);
 	}
 
 	int count = mats.size();
