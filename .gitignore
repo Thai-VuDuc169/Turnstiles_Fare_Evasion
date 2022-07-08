@@ -37,6 +37,7 @@
 test/test_Infer2Features/build
 test/build_deepsort_engine/build
 detections/yolov5_tensorrtx/build
+build
 
 # VSC config
 .vscode
