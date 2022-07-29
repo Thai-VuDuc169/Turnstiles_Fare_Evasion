@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 2.8)
 cmake_policy(SET CMP0060 NEW)
 set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -Wall -O3 -g")
-project(deep_sort VERSION 0.0)
+project(tjd-app)
 
 include(CheckCXXCompilerFlag)
 CHECK_CXX_COMPILER_FLAG("-std=c++14" COMPILER_SUPPORTS_CXX14)
@@ -27,18 +27,18 @@ endif()
 
 find_package(Eigen3 REQUIRED)
 find_package(Boost COMPONENTS system)
-find_package(TensorflowCC COMPONENTS Shared)
 find_package(CUDA)
+# find_package(TensorflowCC COMPONENTS Shared)
 
 include_directories(${EIGEN3_INCLUDE_DIR})
 include_directories(${OpenCV_INCLUDE_DIRS})
 include_directories(${Boost_INCLUDE_DIRS})
-include_directories(${PROJECT_BINARY_DIR}/../src/matching/include/)
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../src/matching/include/)
-include_directories(${PROJECT_BINARY_DIR}/../src/thirdPart/include/)
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../src/thirdPart/include/)
-include_directories(${PROJECT_BINARY_DIR}/../src/features/include/)
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../src/features/include/)
+# include_directories(${PROJECT_BINARY_DIR}/../src/matching/include/)
+# include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../src/matching/include/)
+# include_directories(${PROJECT_BINARY_DIR}/../src/thirdPart/include/)
+# include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../src/thirdPart/include/)
+# include_directories(${PROJECT_BINARY_DIR}/../src/features/include/)
+# include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../src/features/include/)
 include_directories(${PROJECT_BINARY_DIR}/../src/app/include/)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../src/app/include/)
 
@@ -53,12 +53,13 @@ add_definitions(-Wunused-variable)
 
 set(EXECUTABLE_OUTPUT_PATH ../bin)
 set(LIBRARY_OUTPUT_PATH ../lib)
-file(GLOB_RECURSE SRC_FILES "src/app/src/*.cpp" "src/features/*.cpp" "src/matching/src/*.cpp" "src/thirdPart/src/*.cpp")
+# file(GLOB_RECURSE SRC_FILES "src/app/src/*.cpp" "src/features/*.cpp" "src/matching/src/*.cpp" "src/thirdPart/src/*.cpp")
+file(GLOB_RECURSE SRC_FILES "src/app/src/main.cpp" "src/app/src/param.cpp")
 
 
 #Library
-add_library(deepsort SHARED ${SRC_FILES})
-target_link_libraries(deepsort ${OpenCV_LIBS}  ${Boost_LIBRARIES} TensorflowCC::Shared  ${CUDA_LIBRARIES})
+add_library(tjd SHARED ${SRC_FILES})
+target_link_libraries(tjd ${OpenCV_LIBS}  ${Boost_LIBRARIES}  ${CUDA_LIBRARIES})
 
-add_executable(deep_sort ${SRC_FILES})
-target_link_libraries(deep_sort deepsort)
+add_executable(tjd-app ${SRC_FILES})
+target_link_libraries(tjd-app tjd)

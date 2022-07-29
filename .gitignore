@@ -38,11 +38,11 @@ test/test_Infer2Features/build
 test/build_deepsort_engine/build
 detections/yolov5_tensorrtx/build
 build
+bin
+lib
 
 # VSC config
 .vscode
 
 # plugins
-plugins/yolov5n
-plugins/deep_sort
-plugins/efficient_pose
+plugins
